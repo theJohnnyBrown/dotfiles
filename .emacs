@@ -39,7 +39,7 @@
 
 (mapc (lambda (path) (add-to-list 'load-path (zeroein:path path)))
       '("ein/lisp" "markdown-mode" "websocket" "python" "auto-complete"
-        "popup" "fuzzy" "pos-tip" "smartrep"))
+        "popup" "fuzzy" "pos-tip" "smartrep" "emacs-request"))
 
 (load (zeroein:path "nxhtml" "autostart.el"))
 
@@ -59,16 +59,6 @@
                (zeroein:path "auto-complete" "dict"))
   (global-auto-complete-mode t))
 
-;; MuMaMo
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Courier 10 Pitch" :foundry "bitstream" :slant normal :weight bold :height 90 :width normal))))
- '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) nil))))
-
-
 ;;; Workaround
 
 ;; Suppress this warning when using mumamo:
@@ -97,9 +87,7 @@
 (setq load-path (cons "~/.emacs.d/color-theme-6.6.0/" load-path))
 (setq load-path (cons "/Applications/Emacs.app/Contents/Resources/lisp/"
 		      load-path))
-(setq load-path (cons "~/.emacs.d/clojure_stuff/clojure-mode/" load-path))
 
-(require 'clojure-mode)
 (require 'php-mode)
 ; (require 'flymake)
 ; (require 'flymake-cursor)
