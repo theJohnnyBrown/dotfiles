@@ -12,6 +12,9 @@ source ~/toolscripts/git-prompt.sh
 # default ubuntu bashrc
 source $DOTFILES/ubuntu_bashrc
 
+# local config
+LP=~/.local_profile && test -f $LP && source $LP
+
 #check for homebrew-installed bins and libs first
 export PATH=/usr/local/bin:$PATH
 
@@ -31,6 +34,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 export PATHONPATH=$PYTHONPATH:"/Library/Python/2.6/site-packages/"
+export PYTHONPATH=$PYTHONPATH:"/Library/Python/2.6/site-packages/"
 #alias ipython=ipython-2.6
 
 
