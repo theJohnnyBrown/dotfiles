@@ -137,3 +137,4 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.6`
 
 alias lh='ls -ltah | head'
 alias lhh='ls -ltah'
+export PATH=$PATH:~/dotfiles/toolscripts/
