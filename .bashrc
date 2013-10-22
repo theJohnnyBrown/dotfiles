@@ -111,12 +111,14 @@ __update_git_ps1 () {
     export PS1="$GREEN[\u@\h \w$RED$GIT_PS1$GREEN]\$ $NO_COLOR"
 }
 
-if [ -z "$INSIDE_EMACS" ]; then
-    export PROMPT_COMMAND=""
-fi
-# echo ".bashrc loaded"
-
 export PROMPT_COMMAND="__update_git_ps1;$PROMPT_COMMAND"
+
+if [ -z "$TERM"="dumb" ]; then
+    export PROMPT_COMMAND="" 
+    export PS1="\s-\v\$ "
+fi
+
+# echo ".bashrc loaded"
 
 
 export PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
