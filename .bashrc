@@ -111,11 +111,12 @@ __update_git_ps1 () {
     export PS1="$GREEN[\u@\h \w$RED$GIT_PS1$GREEN]\$ $NO_COLOR"
 }
 
-export PROMPT_COMMAND="__update_git_ps1;$PROMPT_COMMAND"
-
-if [ -z "$TERM"="dumb" ]; then
-    export PROMPT_COMMAND="" 
-    export PS1="\s-\v\$ "
+if [ "$TERM" = "dumb" ] 
+then
+    echo "> "
+    export PS1="\u@\h \$ "
+else
+    export PROMPT_COMMAND="__update_git_ps1;$PROMPT_COMMAND"
 fi
 
 # echo ".bashrc loaded"
@@ -131,11 +132,6 @@ alias grb='git rb'
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export LEIN_REPL_PORT=4555
-
-## grails
-export GRAILS_HOME="~/src/grails-2.2.4"
-export PATH=$PATH:$GRAILS_HOME/bin
-export JAVA_HOME=`/usr/libexec/java_home -v 1.6`
 
 alias lh='ls -ltah | head'
 alias lhh='ls -ltah'
