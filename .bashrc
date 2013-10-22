@@ -1,4 +1,3 @@
-
 DOTFILES=~/dotfiles
 
 #homebrew puts python libraries here:
@@ -69,7 +68,7 @@ fi
 
 alias show='cat ~/.dirs'
 save (){
-     command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ; 
+     command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ;
 }
 source ~/.dirs  # Initialization for the above 'save' facility: source the .sdirs file
 shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
@@ -98,7 +97,7 @@ alias gr='grep -r --color="auto" -I --exclude="#*" --exclude="\.#*"'
 
 #alias ipython=ipython-2.6
 
-export EDITOR="emacsclient -nw"
+export EDITOR="emacs"
 export GIT_EDITOR=$EDITOR
 
 complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
@@ -121,7 +120,7 @@ export PROMPT_COMMAND="__update_git_ps1;$PROMPT_COMMAND"
 
 
 export PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
- 
+
 alias gco='git co'
 alias gci='git ci'
 alias grb='git rb'
@@ -130,3 +129,11 @@ alias grb='git rb'
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export LEIN_REPL_PORT=4555
+
+## grails
+export GRAILS_HOME="~/src/grails-2.2.4"
+export PATH=$PATH:$GRAILS_HOME/bin
+export JAVA_HOME=`/usr/libexec/java_home -v 1.6`
+
+alias lh='ls -ltah | head'
+alias lhh='ls -ltah'

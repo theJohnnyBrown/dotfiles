@@ -1,12 +1,12 @@
 [user]
-	name = Johnny Brown
-	email = jb@stafftacular.com
+        name = Johnny Brown
+        email = johnnybrown7@gmail.com
 [color]
-	ui = true
+        ui = true
 
 [alias]
-	co = checkout
-	ci = commit
-	rb = rebase
-	sj = status
-	blamestats = !~/Desktop/jtools/git-utils/blamestats.py ${GIT_PREFIX:-.}
+        co = checkout
+        ci = commit
+        rb = rebase
+        sj = status
+        blamestats = !~/Desktop/jtools/git-utils/blamestats.py ${GIT_PREFIX:-.}
