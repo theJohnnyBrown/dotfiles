@@ -137,3 +137,9 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.6`
 
 alias lh='ls -ltah | head'
 alias lhh='ls -ltah'
+export PATH=/usr/local/share/npm/bin:$PATH
+export SLIMERJSLAUNCHER=/Applications/Firefox.app/Contents/MacOS/firefox
+
+mc () {
+    command mkdir -p $@ && cd $@;
+}
