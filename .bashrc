@@ -111,12 +111,15 @@ __update_git_ps1 () {
     export PS1="$GREEN[\u@\h \w$RED$GIT_PS1$GREEN]\$ $NO_COLOR"
 }
 
-if [ -z "$INSIDE_EMACS" ]; then
-    export PROMPT_COMMAND=""
+if [ "$TERM" = "dumb" ]
+then
+    echo "> "
+    export PS1="\u@\h \$ "
+else
+    export PROMPT_COMMAND="__update_git_ps1;$PROMPT_COMMAND"
 fi
-# echo ".bashrc loaded"
 
-export PROMPT_COMMAND="__update_git_ps1;$PROMPT_COMMAND"
+# echo ".bashrc loaded"
 
 
 export PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
@@ -130,16 +133,13 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export LEIN_REPL_PORT=4555
 
-## grails
-export GRAILS_HOME="~/src/grails-2.2.4"
-export PATH=$PATH:$GRAILS_HOME/bin
-export JAVA_HOME=`/usr/libexec/java_home -v 1.6`
-
 alias lh='ls -ltah | head'
 alias lhh='ls -ltah'
+
 export PATH=/usr/local/share/npm/bin:$PATH
 export SLIMERJSLAUNCHER=/Applications/Firefox.app/Contents/MacOS/firefox
 
 mc () {
     command mkdir -p $@ && cd $@;
 }
+export PATH=$PATH:~/dotfiles/toolscripts/
