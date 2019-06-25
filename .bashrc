@@ -2,7 +2,7 @@
 DOTFILES=~/dotfiles
 
 #homebrew puts python libraries here:
-export PATH=/usr/local/share/python:$PATH
+export PATH=/usr/local/share/python:~/bin:$PATH
 
 
 # git autocomplete
@@ -65,7 +65,7 @@ fi
 
 alias show='cat ~/.dirs'
 save (){
-     command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ; 
+     command sed "/!$/d" ~/.dirs > ~/.dirs1; \mv ~/.dirs1 ~/.dirs; echo "$@"=\"`pwd`\" >> ~/.dirs; source ~/.dirs ;
 }
 source ~/.dirs  # Initialization for the above 'save' facility: source the .sdirs file
 shopt -s cdable_vars # set the bash option so that no '$' is required when using the above facility
@@ -94,7 +94,7 @@ alias gr='grep -r --color="auto" -I --exclude="#*" --exclude="\.#*"'
 
 #alias ipython=ipython-2.6
 
-export EDITOR="emacsclient -nw"
+export EDITOR="vi"
 export GIT_EDITOR=$EDITOR
 
 complete -W "$(echo $(grep '^ssh ' ~/.bash_history | sort -u | sed 's/^ssh //'))" ssh
@@ -117,12 +117,18 @@ export PROMPT_COMMAND="__update_git_ps1;$PROMPT_COMMAND"
 
 
 export PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
- 
-alias gco='git co'
-alias gci='git ci'
-alias grb='git rb'
+
+alias gs='git status'
+alias gd='git diff'
+alias ga='git add'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export LEIN_REPL_PORT=4555
+
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || {
+    # if not found in /usr/local/etc, try the brew --prefix location
+    [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
+        . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+}
